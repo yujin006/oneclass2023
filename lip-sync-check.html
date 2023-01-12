@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>립싱크</title>
+
+    <script>
+        let canvas;
+        let ctx;
+        const img = new Image();
+        img.src = "lip-sync.png";
+
+        function init() {
+            canvas = document.querySelector("canvas");
+            ctx = canvas.getContext("2d");
+ 
+            ctx.drawImage(img, 1015, 170, 290, 150, 0, 0, 290, 150);
+            ctx.drawImage(img, 1377, 170, 290, 150, 300, 0, 290, 150);
+            ctx.drawImage(img, 1690, 170, 290, 150, 600, 0, 290, 150);
+
+            ctx.drawImage(img, 1010, 520, 290, 150, 0, 160, 290, 150);
+            ctx.drawImage(img, 1375, 520, 290, 150, 300, 160, 290, 150);
+            ctx.drawImage(img, 1690, 520, 290, 150, 600, 160, 290, 150);
+
+            ctx.drawImage(img, 1015, 870, 290, 150, 0, 320, 290, 150);
+            ctx.drawImage(img, 1377, 870, 290, 150, 300, 320, 290, 150);
+            ctx.drawImage(img, 1690, 870, 290, 150, 600, 320, 290, 150);
+
+            ctx.drawImage(img, 1010, 1220, 290, 150, 0, 480, 290, 150);
+            ctx.drawImage(img, 1377, 1220, 290, 150, 300, 480, 290, 150);
+            ctx.drawImage(img, 1690, 1220, 290, 150, 600, 480, 290, 150);
+        }
+
+    </script>
+</head>
+<body onload="init()">
+    <canvas width="1000" height="1600"></canvas>
+</body>
+</html>

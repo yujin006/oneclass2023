@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도형그리기</title>
+
+    <script>
+        let canvas;
+        let ctx;
+
+        function init() {
+            canvas = document.querySelector("canvas");
+            ctx = canvas.getContext("2d");
+
+            ctx.fillStyle = "rgb(255, 0, 0)";
+            ctx.fillRect(0, 0, 200, 200); // 채워진 사각형
+            drawTri(ctx, 300, 0, 200, 200, 400, 200); //채워진 삼각형 
+            drawCircle(ctx, 500, 100, 100); //채워진 원
+            drawHexa(ctx, 700, 100, 100); //채워진 육각형
+
+            ctx.fillStyle = "rgb(0, 255, 0)";
+            ctx.fillRect(0, 200, 200, 200); // 채워진 사각형
+            drawTri(ctx, 300, 200, 200, 400, 400, 400); //채워진 삼각형 
+            drawCircle(ctx, 500, 300, 100); //채워진 원
+            drawHexa(ctx, 700, 300, 100); //채워진 육각형
+
+            ctx.fillStyle = "rgb(0, 0, 255)";
+            ctx.fillRect(0, 400, 200, 200); // 채워진 사각형 
+            drawTri(ctx, 300, 400, 200, 600, 400, 600); //채워진 삼각형
+            drawCircle(ctx, 500, 500, 100); //채워진 원
+            drawHexa(ctx, 700, 500, 100); //채워진 육각형
+        }
+
+        function drawCircle(context, x, y, radius) {
+            context.beginPath();
+               // radius = (Math.pI / 180) * degree 
+               // true 반시계 방향, false 시계방향
+               // closePath()를 하지 않으면 선만 표시
+               context.arc(x, y, radius, 0, (Math.PI / 180) * 360, false);
+            context.closePath();
+
+            ctx.fill();
+        }
+
+        function drawTri(context, x1, y1, x2, y2, x3, y3) {
+            context.beginPath(); //다각형 시작
+            context.moveTo(x1, y1);
+            context.lineTo(x2, y2);
+            context.lineTo(x3, y3);
+            context.closePath(); //다각형 종료
+
+            // context.stroke(); // 테두리 그리기
+            context.fill(); // 채워진 도형 그리기
+        }
+
+        function drawHexa(context, x, y, redius) {
+             context.beginPath();
+
+             context.moveTo(x + redius, y);
+             context.lineTo(x + (redius / 2), y + redius);
+             context.lineTo(x - (redius / 2), y + redius);
+             context.lineTo(x - redius, y);
+             context.lineTo(x - (redius / 2), y - redius);
+             context.lineTo(x + (redius / 2), y - redius);
+             //context.lineTo(x + redius, y);
+
+             context.closePath();
+
+             context.fill();
+
+        }
+    </script>
+</head>
+<body onload="init()">
+    <canvas width="800" height="800"></canvas>
+</body>
+</html>

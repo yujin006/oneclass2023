@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moving cat</title>
+    <script>
+        let frame = 0;
+        let canvas;
+        let ctx;
+
+        let horse = []; 
+
+        for(let index=1; index <= 1; index ++) {
+            const img = new Image();
+            img.src = "cats.jpg";
+
+            horse.push(img);
+        }
+        
+        function init() {
+           canvas = document.querySelector("canvas");
+           ctx = canvas.getContext("2d");
+        
+            draw();
+
+            setInterval(draw, 100);
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            horse.forEach((item, index) => {
+                ctx.drawImage(item, frame* (872 / 8), 0, (872 / 8), 152, 0, (index * 152), (872 / 8), 152);  
+            });
+
+            frame++;
+            frame = frame % 8;
+        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+    </script>
+</head>
+<body onload="init()">
+    <canvas width="1000" height="1000"></canvas>
+</body>
+</html>

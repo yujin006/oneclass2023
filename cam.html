@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cam</title>
+
+    <script>
+        const max = 32;
+        let count = 0;
+
+        function roll() {
+            count = count % max;
+            count++;
+
+            const tag = document.querySelector("#cam");
+            const counter = "0"+ count;
+            tag.src = "photo/cam" + counter.slice(-2) + ".jpeg";
+        }
+
+        window.onload = function() {
+            setInterval(roll, 50);
+
+        }
+    </script>
+</head>
+<body>
+    <img id="cam" width="3024" height="4032" src="photo/cam01.jpeg">
+
+</body>
+</html>

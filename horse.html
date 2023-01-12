@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>horse</title>
+
+    <script>
+        let frame = 0;
+        let canvas;
+        let ctx;
+
+        let horse = []; 
+
+        for(let index=1; index <= 6; index ++){
+            const img = new Image();
+            img.src = "horse/horse" + index + ".png";
+
+            horse.push(img);
+        }
+        
+        function init() {
+           canvas = document.querySelector("canvas");
+           ctx = canvas.getContext("2d");
+        
+            draw();
+
+            setInterval(draw, 50);
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            horse.forEach((item, index) => {
+                ctx.drawImage(item, frame* (1980 / 12), 0, (1980 / 12), 98, 0, (index * 98), (1980 / 12), 98);  
+            });
+
+            frame++;
+            frame = frame % 12;
+        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+    </script>
+</head>
+<body onload="init()">
+    <canvas width="1980" height="600"></canvas>
+</body>
+</html>

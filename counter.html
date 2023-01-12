@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카운터</title>
+
+    <script>
+        let count = 0;
+        const img = [
+            "https://d1cua0vf0mkpiy.cloudfront.net/images/menu/normal/3ffb6ab8-c53c-4f01-b1a8-3ca60c5d1f81.png",
+            "https://d1cua0vf0mkpiy.cloudfront.net/images/menu/normal/6879ed8c-87c8-427b-8573-6b74ccba210a.png",
+            "https://d1cua0vf0mkpiy.cloudfront.net/images/menu/normal/6de5495d-fff6-4c3e-a572-5cfc0592aac6.png",
+            "https://d1cua0vf0mkpiy.cloudfront.net/images/menu/normal/28eaf019-0ec0-4999-a313-7133e7cdf4d0.png",
+            "https://d1cua0vf0mkpiy.cloudfront.net/images/menu/normal/f2c78ba1-9c83-4ea9-83b8-126a998f641f.png"
+        ];
+
+        function counter() {
+            // alert("클릭했습니다");
+
+            count++;
+
+            count = count % 6;
+
+            console.log(count);
+
+            const tag = document.querySelector("h1");
+            tag.textContent = "COUNT:" + count;
+        }
+
+        function roll() {
+            count++;
+            count = count % 5;
+
+            const tag = document.querySelector("img");
+            tag.src = img[count];
+        }
+
+        function timer(mode) {
+            if(mode == 1)
+            setInterval(counter, 1000);
+            else
+            setInterval(roll, 1000);
+        }
+    </script>
+</head>
+<body>
+    <h1>COUNT:  0</h1>
+    <div>
+        <button onclick="counter()">Click</button>
+    </div>
+    <div>
+        <button onclick="timer(1)">Auto Count</button>
+    </div>
+    <div>
+        <button onclick="timer(2)">Auto Roll</button>
+    </div>
+    <div>
+        <img src="https://d1cua0vf0mkpiy.cloudfront.net/images/menu/normal/3ffb6ab8-c53c-4f01-b1a8-3ca60c5d1f81.png">
+    </div>
+</body>
+</html>

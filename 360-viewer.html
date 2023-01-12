@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360 Viewer</title>
+
+    <script>
+        const max = 36;
+        let count = 1;
+
+        function roll() {
+            count = count % max;
+            count++;
+
+            const tag = document.querySelector("#rosegold");
+            const counter = "0"+ count;
+            tag.src = "360-viewer/ushop_iPhone6s_A1688-128_RoseGold_" + counter.slice(-2) + ".png";
+
+            const tag2 = document.querySelector("#silver");
+            tag2.src = "360-viewer/ushop_iPhone6s_A1688-128_silver_" + counter.slice(-2) + ".png";
+        }
+
+        window.onload = function() {
+            setInterval(roll,50);
+
+        }
+    </script>
+</head>
+<body>
+    <img id="rosegold" width="585" height="650" src="360-viewer/ushop_iPhone6s_A1688-128_RoseGold_01.png">
+
+    <img id="silver" width="585" height="650" src="360-viewer/ushop_iPhone6s_A1688-128_Silver_01.png">
+</body>
+</html>
